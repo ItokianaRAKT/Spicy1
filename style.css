@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100svh;
+  
+  background: #E85A70;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+  color: #FFF4F6;
+}
+
+#scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  width: 90%;
+  max-width: 90vw;
+
+  padding-inline: clamp(0rem, 0vw, 0rem);
+}
+
+
+/* TEXTE 1 */
+#text p:first-child {
+  font-size: clamp(1.8vh, 5vh, 3vh);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* TEXTE 2 */
+#text p:last-child {
+  margin-top: 0.5em;
+  font-size: clamp(2vh, 6vh, 4vh);
+  font-weight: 400;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+/* évite les sauts verticaux pendant le typing */
+#text p {
+  min-height: 1.4em;
+
+  /* LA PARTIE IMPORTANTE */
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ICÔNES */
+.floating-icon {
+  position: absolute;
+  width: clamp(18px, 3vw, 32px);
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  animation: floatFade ease-in-out forwards;
+}
+
+@keyframes floatFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-20px) scale(1);
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.05);
+  }
+}
